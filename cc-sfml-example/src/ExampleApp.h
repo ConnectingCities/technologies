@@ -9,10 +9,11 @@ public:
 
 
     bool wasStartOK();
-    void update();
     void run();
 
 private:
+    void update();
+
     sf::Sound clickSound;
     sf::SoundBuffer clickSoundBuffer;
 
@@ -25,7 +26,7 @@ private:
     sf::Text infoText;
     sf::Font font;
 
-    sf::Vector2f currentPosition, targetPosition, targetVector;
+    sf::Vector2f targetPosition, targetVector;
 
     unsigned int animCount, animLength;
 

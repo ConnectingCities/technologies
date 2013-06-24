@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-ExampleApp::ExampleApp() : RenderWindow(VideoMode(800,600), "ExampleApp"), currentPosition(368.f, 268.f), targetPosition(400.f, 300.f), animCount(0), animLength(50), startOK(true)
+ExampleApp::ExampleApp() : RenderWindow(VideoMode(800,600), "ExampleApp"), targetPosition(400.f, 300.f), animCount(0), animLength(50), startOK(true)
 {
     RenderWindow::setVerticalSyncEnabled(true);
 
@@ -60,10 +60,10 @@ bool ExampleApp::wasStartOK()
 void ExampleApp::update()
 {
     Event event;
-    while (pollEvent(event))
+    while (RenderWindow::pollEvent(event))
     {
         if (event.type == Event::Closed)
-            close();
+            RenderWindow::close();
     }
 
     Vector2i mousePos = Mouse::getPosition(*this);
@@ -94,7 +94,7 @@ void ExampleApp::update()
 
 void ExampleApp::run()
 {
-    while (isOpen())
+    while (RenderWindow::isOpen())
     {
         update();
 
